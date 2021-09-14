@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row" style="background-color:black; color:white;">
+            <div class="col-md-1"></div>
+            <div class="col-md-7 mt-3">
+            </div>
+            <div class="col-md-3 mt-2 mb-2">
+                <a href="@Url.Action("DanhSachSanPham","Admin")" style="color:white; text-decoration:none;"><img src="~/Content/Images/iconTrangChu.PNG" /> Trang chủ</a>
+                <a class="ml-3" href="@Url.Action("DangXuat","Admin")" style="color:white; text-decoration:none;"><img src="~/Content/Images/dangXuat.PNG" /> Đăng xuất</a>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+        <div class="row mt-3 mb-2">
+            <div class="col-md-3 mt-2">
+                <h5 style="font-size:25px;">ADMIN MENU QUẢN LÝ</h5>
+                <ul class="nav flex-column">
+                    <li class="nav-item mt-2">
+                        @Html.ActionLink("SẢN PHẨM","DanhSachSanPham","Admin",new{@class="nav-link", @style="color:black;"})
+                    </li>
+                    <li class="nav-item">
+                        @Html.ActionLink("NGƯỜI DÙNG","DanhSachKhachHang","Admin",new{@class="nav-link", @style="color:black;"})
+                    </li>
+                    <li class="nav-item">
+                        @Html.ActionLink("HÓA ĐƠN","DanhSachHoaDon","Admin",new{@class="nav-link", @style="color:black;"})
+                    </li>
+                    <li class="nav-item">
+                        @Html.ActionLink("LIÊN HỆ","DanhSachLienHe","Admin",new{@class="nav-link", @style="color:black;"})
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-8">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+    <script src="~/Content/bootstrap/js/jquery-3.3.1.min.js"></script>
+    <script src="~/Content/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

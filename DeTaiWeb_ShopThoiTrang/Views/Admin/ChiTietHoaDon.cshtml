@@ -1,0 +1,23 @@
+﻿@using DeTaiWeb_ShopThoiTrang.Models;
+@model List<ChiTietHoaDon>
+@{
+    ViewBag.Title = "ChiTietHoaDon";
+    Layout = "~/Views/Shared/LayoutQuanLy.cshtml";
+}
+
+<div class="container">
+        <h2>DANH SÁCH SẢN PHẨM TRONG HÓA ĐƠN</h2>
+        <table class="table">
+            <tr class="text-center">
+                <td style="border:1px solid black;"><b style="font-weight:bold;">MÃ SẢN PHẨM</b></td>
+                <td style="border:1px solid black;"><b style="font-weight:bold;">SỐ LƯỢNG</b></td>
+            </tr>
+            @foreach (ChiTietHoaDon ct in Model)
+            {
+                <tr class="text-center">
+                    <td style="border:1px solid black;"><p>@ct.MaSP</p></td>
+                    <td style="border:1px solid black;"><p>@ct.SoLuong</p></td>
+                </tr>
+            }
+        </table>
+</div>

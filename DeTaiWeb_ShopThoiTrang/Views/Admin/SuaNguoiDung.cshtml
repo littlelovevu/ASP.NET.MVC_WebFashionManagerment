@@ -1,0 +1,104 @@
+﻿@model DeTaiWeb_ShopThoiTrang.Models.KhachHang
+@{
+    ViewBag.Title = "SuaNguoiDung";
+    Layout = "~/Views/Shared/LayoutQuanLy.cshtml";
+}
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>THAY ĐỔI THÔNG TIN SẢN PHẨM</legend>
+
+        @Html.HiddenFor(model => model.MaKhachHang)
+
+        <div class="row mt-3">
+            <div class="col-md-2">
+                <div class="editor-label">
+                    <p>Tên khách hàng</p>
+                </div>
+            </div>
+            <div class="col-md-7">
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.TenKhachHang)
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-md-2">
+                <div class="editor-label">
+                    <p>Tên tài khoản</p>
+                </div>
+            </div>
+            <div class="col-md-7">
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.TenTaiKhoan)
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-md-2">
+                <div class="editor-label">
+                    <p>Mật khẩu</p>
+                </div>
+            </div>
+            <div class="col-md-7">
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.MatKhau)
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-md-2">
+                <div class="editor-label">
+                    <p>Địa chỉ</p>
+                </div>
+            </div>
+            <div class="col-md-7">
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.DiaChi)
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-md-2">
+                <div class="editor-label">
+                    <p>Số điện thoại</p>
+                </div>
+            </div>
+            <div class="col-md-7">
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.SDT)
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row mt-3">
+            <div class="col-md-2">
+                <div class="editor-label">
+                    <p>Loại tài khoản</p>
+                </div>
+            </div>
+            <div class="col-md-7">
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.MaLTK) ( 1: Admin - 2: Khách hàng )
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <input type="submit" value="THAY ĐỔI" class="btn btn-dark" style="width:370px;" />
+        </div>
+
+        <div class="row mt-3">
+            <a href="@Url.Action("DanhSachKhachHang", "Admin")">
+                <input class="btn btn-dark", style="width:370px;" type="button" value="TRỞ VỀ" />
+            </a>
+        </div>
+    </fieldset>
+}

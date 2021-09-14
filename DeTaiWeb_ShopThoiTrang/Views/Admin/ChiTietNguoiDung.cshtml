@@ -1,0 +1,102 @@
+﻿@using DeTaiWeb_ShopThoiTrang.Models;
+@model KhachHang
+@{
+    ViewBag.Title = "ChiTietNguoiDung";
+    Layout = "~/Views/Shared/LayoutQuanLy.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="row mt-5">
+        <div class="col-md-2">
+            
+        </div>
+        <div class="col-md-10">
+            <h2>THÔNG TIN NGƯỜI DÙNG</h2>
+            <div class="row ml-3 mt-5">
+                <div class="col-md-3">
+                    Họ tên người dùng:
+                </div>
+                <div class="col-md-7">
+                    <p>@Model.TenKhachHang</p>
+                </div>
+            </div>
+
+            <div class="row ml-3">
+                <div class="col-md-3">
+                    Tên đăng nhập:
+                </div>
+                <div class="col-md-7">
+                    <p>@Model.TenTaiKhoan</p>
+                </div>
+            </div>
+
+            <div class="row ml-3">
+                <div class="col-md-3">
+                    Tên đăng nhập:
+                </div>
+                <div class="col-md-7">
+                    <p>@Model.TenTaiKhoan</p>
+                </div>
+            </div>
+
+            <div class="row ml-3">
+                <div class="col-md-3">
+                    Mật khẩu:
+                </div>
+                <div class="col-md-7">
+                    <p>@Model.MatKhau</p>
+                </div>
+            </div>
+
+            <div class="row ml-3">
+                <div class="col-md-3">
+                    Địa chỉ:
+                </div>
+                <div class="col-md-7">
+                    <p>@Model.DiaChi</p>
+                </div>
+            </div>
+
+            <div class="row ml-3">
+                <div class="col-md-3">
+                    Số điện thoại:
+                </div>
+                <div class="col-md-7">
+                    <p>@Model.SDT</p>
+                </div>
+            </div>
+
+            <div class="row ml-3">
+                <div class="col-md-3">
+                    Loại tài khoản:
+                </div>
+                <div class="col-md-7">
+                    @if (@Model.MaLTK == 1)
+                    {
+                        <p>Admin</p>
+                    }
+                    else
+                    {
+                        <p>Khách hàng</p>
+                    }
+                </div>
+            </div>
+            
+            <div class="row mt-3 ml-3">
+                <a href="@Url.Action("SuaNguoiDung","Admin", new { @id = Model.MaKhachHang})">
+                    <input class="btn", style="width:360px; height:50px; font-size:18px; background-color:green; color:white;"} type="button" value="SỬA CHI TIẾT" />
+                </a>
+            </div>
+            <div class="row mt-3 ml-3">
+                <a href="@Url.Action("XoaNguoiDung","Admin", new { @id = Model.MaKhachHang})">
+                    <input class="btn", style="width:360px; height:50px; font-size:18px; background-color:red; color:white;"} type="button" value="XÓA SẢN PHẨM" />
+                </a>
+            </div>
+            <div class="row mt-3 ml-3">
+                <a href="@Url.Action("DanhSachKhachHang","Admin")">
+                    <input class="btn btn-dark", style="width:360px; height:50px; font-size:18px;"} type="button" value="TRỞ VỀ" />
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

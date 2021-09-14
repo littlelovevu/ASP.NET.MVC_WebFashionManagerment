@@ -1,0 +1,47 @@
+﻿@using DeTaiWeb_ShopThoiTrang.Models;
+@model List<SanPham>
+@{
+    ViewBag.Title = "DanhSachSanPham";
+    Layout = "~/Views/Shared/LayoutQuanLy.cshtml";
+}
+
+<div class="container">
+        <h2>DANH SÁCH SẢN PHẨM</h2>
+        <table class="table">
+            <tr>
+                <td colspan="1">
+                    <a href="@Url.Action("ThemSanPham", "Admin")">
+                        <input class="btn btn-dark", style="width:100%; height:50px; font-size:18px;"} type="button" value="THÊM SẢN PHẨM" />
+                    </a>
+                </td>
+                <td colspan="5"></td>
+            </tr>
+            <tr class="text-center">
+                <td style="border:1px solid black;"><b style="font-weight:bold;">ẢNH</b></td>
+                <td style="border:1px solid black;"><b style="font-weight:bold;">TÊN SẢN PHẨM</b></td>
+                <td style="border:1px solid black;"><b style="font-weight:bold;">GIÁ</b></td>
+                @*<td><b style="font-weight:bold;">SỐ LƯỢNG</b></td>*@
+                <td style="border:1px solid black;"><b style="font-weight:bold;">CHI TIẾT</b></td>
+                <td style="border:1px solid black;"><b style="font-weight:bold;">SỬA</b></td>
+                <td style="border:1px solid black;"><b style="font-weight:bold;">XÓA</b></td>
+            </tr>
+            @foreach (SanPham sp in Model)
+            {
+                <tr class="text-center">
+                    <td style="border:1px solid black;"><img src="/Content/Images/@sp.HinhMinhHoa" style="width:150px; height:170px;" /></td>
+                    <td style="border:1px solid black;"><p>@sp.TenSanPham</p></td>
+                    <td style="border:1px solid black;"><p>@String.Format("{0:#,###}", @sp.Gia)₫</p></td>
+                    @*<td><p>Chưa có</p></td>*@
+                    <td style="border:1px solid black;">
+                        @Html.ActionLink("Chi tiết", "ChiTietSanPham", new { id=@sp.MaSanPham })
+                    </td>
+                    <td style="border:1px solid black;">
+                        @Html.ActionLink("Sửa", "SuaSanPham", new { id=@sp.MaSanPham })
+                    </td>
+                    <td style="border:1px solid black;">
+                        @Html.ActionLink("Xóa", "XoaSanPham", new { id=@sp.MaSanPham })
+                    </td>
+                </tr>
+            }
+        </table>
+</div>

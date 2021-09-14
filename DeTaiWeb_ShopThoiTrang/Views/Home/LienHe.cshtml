@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "LienHe";
+    Layout = "~/Views/Shared/LayoutKhachHang.cshtml";
+}
+
+<div class="row text-center">
+    <form action="/Home/LienHe_KQ" method="post" style="margin-left:300px;">
+        <h3>LIÊN HỆ ĐẾN SHOP</h3>
+        <input class="mt-2" type="text" name="txtTen" placeholder="Họ & tên" />
+        <p></p>
+        <input type="text" name="txtSDT" placeholder="Số điện thoại" />
+        <p></p>
+        <input type="text" name="txtEmail" placeholder="Địa chỉ email" />
+        <p></p>
+        <input type="text" name="txtTieuDe" placeholder="Tiêu đề liên hệ" />
+        <p></p>
+        <input type="text" name="txtNoiDung" placeholder="Nội dung cần liên hệ" />
+        <p></p>
+        <input type="submit" value="Liên hệ" class="btn btn-dark" style="width:190px;" />
+    </form>
+</div>
+<div class="row mt-3" style="margin-left:313px;">
+    <a href="@Url.Action("Index","Home")" style="color:black; text-decoration:none;">
+        <input type="button" value="Trở về" class="btn btn-success" style="width:190px;" />
+    </a>
+</div>

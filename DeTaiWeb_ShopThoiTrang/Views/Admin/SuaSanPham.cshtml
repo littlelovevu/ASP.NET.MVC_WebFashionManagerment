@@ -1,0 +1,108 @@
+﻿@model DeTaiWeb_ShopThoiTrang.Models.SanPham
+@{
+    ViewBag.Title = "SuaSanPham";
+    Layout = "~/Views/Shared/LayoutQuanLy.cshtml";
+}
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>THAY ĐỔI THÔNG TIN SẢN PHẨM</legend>
+
+        @Html.HiddenFor(model => model.MaSanPham)
+
+        <div class="row mt-3">
+            <div class="col-md-2">
+                <div class="editor-label">
+                    <p>Tên sản phẩm</p>
+                </div>
+            </div>
+            <div class="col-md-7">
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.TenSanPham)
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-md-2">
+                <div class="editor-label">
+                    Giá
+                </div>
+            </div>
+            <div class="col-md-7">
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Gia)
+                    @*@Html.ValidationMessageFor(model => model.Gia)*@
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-md-2">
+                <div class="editor-label">
+                    Hình minh họa
+                </div>
+            </div>
+            <div class="col-md-7">
+                <div class="editor-field">
+                    <input type="file" name="HinhMinhHoa" value="@Model.HinhMinhHoa" />
+                    @*@Html.ValidationMessageFor(model => model.HinhMinhHoa)*@
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-md-2">
+                <div class="editor-label">
+                    Danh sách hình
+                </div>
+            </div>
+            <div class="col-md-7">
+                <div class="editor-field">
+                    <input type="file" name="DanhSachHinh" value="@Model.DanhSachHinh" />
+                    @*@Html.ValidationMessageFor(model => model.DanhSachHinh)*@
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-md-2">
+                <div class="editor-label">
+                    Mã loại sản phẩm
+                </div>
+            </div>
+            <div class="col-md-7">
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.MaLSP)
+                    @*@Html.ValidationMessageFor(model => model.MaLSP)*@
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-md-2">
+                <div class="editor-label">
+                    Mã nhà sản xuất
+                </div>
+            </div>
+            <div class="col-md-7">
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.MaNSX)
+                    @*@Html.ValidationMessageFor(model => model.MaNSX)*@
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <input type="submit" value="THAY ĐỔI" class="btn btn-dark" style="width:370px;" />
+        </div>
+
+        <div class="row mt-3">
+            <a href="@Url.Action("DanhSachSanPham", "Admin")">
+                <input class="btn btn-dark", style="width:370px;" type="button" value="TRỞ VỀ" />
+            </a>
+        </div>
+    </fieldset>
+}

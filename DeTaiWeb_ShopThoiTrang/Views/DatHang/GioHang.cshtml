@@ -1,0 +1,64 @@
+﻿@using DeTaiWeb_ShopThoiTrang.Models;
+@model List<CartItem>
+@{
+    ViewBag.Title = "GioHang";
+    Layout = "~/Views/Shared/LayoutKhachHang.cshtml";
+}
+
+<div class="container">
+        <h2>Thông tin giỏ hàng đã chọn</h2>
+        <table class="table">
+            <tr>
+                <td></td>
+                <td><b style="font-weight:bold;">SẢN PHẨM</b></td>
+                <td><b style="font-weight:bold;">GIÁ</b></td>
+                <td><b style="font-weight:bold;">SỐ LƯỢNG</b></td>
+                <td><b style="font-weight:bold;">TỔNG</b></td>
+                <td></td>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td><img src="/Content/Images/@item.sAnhBia" style="width:50px; height:60px;" /></td>
+                    <td>@item.sTenSanPham</td>
+                    @using(Html.BeginForm("CapNhatGioHang", "DatHang", new { @msp = item.iMaSanPham}))
+                    {
+                        <td>@string.Format("{0:#,###}",item.dDonGia) ₫</td>
+                        <td>
+                            <input type="number" name="txtSL" value="@item.iSoLuong" />
+                            <input type="submit" value="Cập nhật" class="btn btn-primary"/>
+                        </td>
+                        <td>@item.ThanhTien ₫</td>
+                        <td>
+                            <a href="@Url.Action("XoaGioHang", "DatHang", new { @MaSP= item.iMaSanPham})">
+                                <img src="~/Content/Images/iconDelete.PNG" />
+                            </a>
+                        </td>
+                    }
+                </tr>
+            }
+            <tr style="background-color:lightblue">
+                <td colspan="3" style="color:red; font-weight:bold; text-align:right;">
+                     <b>Tổng cộng:</b>
+                </td>
+                <td>
+                   <b>@ViewBag.TongSoLuong</b>
+                </td>
+                <td>
+                   <b>@string.Format("{0:#,###}",@ViewBag.TongThanhTien) ₫</b>
+                </td>
+                <td>
+                    <a href="@Url.Action("XoaGioHang_All","DatHang")">
+                        <b>Xóa tất cả</b>
+                    </a>
+                </td>
+            </tr>
+            <tr class="mt-3">
+                <td colspan="3" style="font-weight:bold; text-align:right;"></td>
+                <td></td>
+                <td colspan="2">
+                    @Html.ActionLink("ĐẶT HÀNG","XacNhanDonHang","DatHang",new{@class="btn btn-dark", @style="width:100%; height:50px; font-size:25px;"})
+                </td>
+            </tr>
+        </table>
+</div>

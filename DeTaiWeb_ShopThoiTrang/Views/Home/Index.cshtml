@@ -1,0 +1,28 @@
+﻿@using DeTaiWeb_ShopThoiTrang.Models;
+@model List<SanPham>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/LayoutKhachHang.cshtml";
+}
+<h1>@ViewBag.tb</h1>
+<h1 class="mt-4">@ViewBag.td</h1>
+<div class="product-group">
+    <div class="row ml-2 mr-2">
+        @foreach (SanPham sp in Model)
+        {
+            <div class="col-lg-3 text-center mt-5">
+                <div>
+                    <a href="@Url.Action("ChiTiet", "Home", new { maSP = @sp.MaSanPham })">
+                        <img class="card-img-top" style="width:150px; height:200px;" src="~/Content/Images/@sp.HinhMinhHoa" />
+                    </a>
+                    <div class="card-body">
+                        <a style="text-decoration:none;" href="@Url.Action("ChiTiet", "Home", new { maSP = @sp.MaSanPham })">
+                            <h5 style="color:black; height:60px;" class="card-title">@sp.TenSanPham</h5>
+                        </a>
+                        <h5 style="font-weight:bold;">@String.Format("{0:#,###}", sp.Gia) ₫</h5>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

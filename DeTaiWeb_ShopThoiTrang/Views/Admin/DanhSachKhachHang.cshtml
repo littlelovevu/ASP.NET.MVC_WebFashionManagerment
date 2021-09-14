@@ -1,0 +1,60 @@
+﻿@using DeTaiWeb_ShopThoiTrang.Models;
+@model List<KhachHang>
+@{
+    ViewBag.Title = "DanhSachKhachHang";
+    Layout = "~/Views/Shared/LayoutQuanLy.cshtml";
+}
+
+<div class="container">
+        <h2>DANH SÁCH NGƯỜI DÙNG</h2>
+        <table class="table">
+            <tr>
+                <td colspan="2">
+                    <a href="@Url.Action("ThemNguoiDung", "Admin")">
+                        <input class="btn btn-dark", style="width:100%; height:50px; font-size:18px;"} type="button" value="THÊM NGƯỜI DÙNG" />
+                    </a>
+                </td>
+                <td colspan="8"></td>
+            </tr>
+            <tr class="text-center">
+                <td style="border:1px solid black;"><b style="font-weight:bold;">MÃ NGƯỜI DÙNG</b></td>
+                <td style="border:1px solid black;"><b style="font-weight:bold;">TÊN NGƯỜI DÙNG</b></td>
+                <td style="border:1px solid black;"><b style="font-weight:bold;">TÊN TÀI KHOẢN</b></td>
+                <td style="border:1px solid black;"><b style="font-weight:bold;">MẬT KHẨU</b></td>
+                <td style="border:1px solid black;"><b style="font-weight:bold;">ĐỊA CHỈ</b></td>
+                <td style="border:1px solid black;"><b style="font-weight:bold;">SỐ ĐIỆN THOẠI</b></td>
+                <td style="border:1px solid black;"><b style="font-weight:bold;">LOẠI TÀI KHOẢN</b></td>
+                <td style="border:1px solid black;"></td>
+                <td style="border:1px solid black;"></td>
+                <td style="border:1px solid black;"></td>
+            </tr>
+            @foreach (KhachHang kh in Model)
+            {
+                <tr class="text-center">
+                    <td style="border:1px solid black;"><p>@kh.MaKhachHang</p></td>
+                    <td style="border:1px solid black;"><p>@kh.TenKhachHang</p></td>
+                    <td style="border:1px solid black;"><p>@kh.TenTaiKhoan</p></td>
+                    <td style="border:1px solid black;"><p>@kh.MatKhau</p></td>
+                    <td style="border:1px solid black;"><p>@kh.DiaChi</p></td>
+                    <td style="border:1px solid black;"><p>@kh.SDT</p></td>
+                    @if(@kh.MaLTK == 1)
+                    {
+                        <td style="border:1px solid black;"><p>Admin</p></td>
+                    }
+                    else
+                    {
+                        <td style="border:1px solid black;"><p>Khách hàng</p></td>
+                    }
+                    <td style="border:1px solid black;">
+                        @Html.ActionLink("Chi tiết", "ChiTietNguoiDung", new { id=@kh.MaKhachHang })
+                    </td>
+                    <td style="border:1px solid black;">
+                        @Html.ActionLink("Sửa", "SuaNguoiDung", new { id=@kh.MaKhachHang })
+                    </td>
+                    <td style="border:1px solid black;">
+                        @Html.ActionLink("Xóa", "XoaNguoiDung", new { id=@kh.MaKhachHang })
+                    </td>
+                </tr>
+            }
+        </table>
+</div>

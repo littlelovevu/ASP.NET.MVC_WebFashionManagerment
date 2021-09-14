@@ -1,0 +1,11 @@
+﻿@using DeTaiWeb_ShopThoiTrang.Models;
+@model List<NhaSanXuat>
+
+<ul class="nav flex-column">
+    @foreach (NhaSanXuat nsx in Model)
+    {
+        <li class="nav-item">
+            @Html.ActionLink(@nsx.TenNhaSanXuat,"HTSanPhamNSX","Home",new{mnsx = @nsx.MaNhaSanXuat, tnsx = @nsx.TenNhaSanXuat}, new{@class="nav-link", @style="color:black;"})
+        </li>
+    }
+</ul>

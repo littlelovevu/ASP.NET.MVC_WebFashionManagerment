@@ -1,0 +1,69 @@
+﻿@model DeTaiWeb_ShopThoiTrang.Models.SanPham
+
+@{
+    ViewBag.Title = "ThemSanPham";
+    Layout = "~/Views/Shared/LayoutQuanLy.cshtml";
+}
+
+<div class="row text-center">
+    <form action="/Admin/ThemSanPham_KQ" method="post" style="margin-left:100px;">
+        <h3>THÊM SẢN PHẨM</h3>
+        <div class="row mt-3">
+            <div class="col-md-5 text-left">
+                <p>Tên sản phẩm</p>
+            </div>
+            <div class="col-md-7">
+                <input type="text" name="txtTen" placeholder="Tên sản phẩm" />
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-md-5 text-left">
+                <p>Giá</p>
+            </div>
+            <div class="col-md-7">
+                <input type="number" name="txtGia" value="0" />
+            </div>
+        </div>
+       
+        <div class="row mt-3">
+            <div class="col-md-5 text-left">
+                <p>Hình minh họa</p>
+            </div>
+            <div class="col-md-7">
+                <input type="file" name="fup" />
+            </div>
+        </div>
+        
+        <div class="row mt-3">
+            <div class="col-md-5 text-left">
+                <p>Danh sách hình</p>
+            </div>
+            <div class="col-md-7">
+                <input type="file" name="txtDSHinh" />
+            </div>
+        </div>
+        
+        <div class="row mt-3">
+            <div class="col-md-5 text-left">
+                <p>Loại sản phẩm</p>
+            </div>
+            <div class="col-md-7">
+                @Html.DropDownList("MaNhaSanXuat")
+            </div>
+        </div>
+        
+        <div class="row mt-3">
+            <div class="col-md-5 text-left">
+                <p>Nhà sản xuất</p>
+            </div>
+            <div class="col-md-7">
+                @Html.DropDownList("MaLoaiSanPham")
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <input type="submit" value="Thêm sản phẩm" class="btn btn-dark" style="width:400px;" />
+        </div>
+    </form>
+</div>

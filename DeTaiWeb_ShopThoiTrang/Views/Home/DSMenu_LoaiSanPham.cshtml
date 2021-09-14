@@ -1,0 +1,11 @@
+﻿@using DeTaiWeb_ShopThoiTrang.Models;
+@model List<LoaiSanPham>
+
+<ul class="nav flex-column">
+    @foreach (LoaiSanPham lsp in Model)
+    {
+        <li class="nav-item">
+            @Html.ActionLink(@lsp.TenLoaiSanPham,"HTSanPhamLoaiSP","Home",new{mlsp = @lsp.MaLoaiSanPham, tlsp = @lsp.TenLoaiSanPham}, new{@class="nav-link", @style="color:black;"})
+        </li>
+    }
+</ul>

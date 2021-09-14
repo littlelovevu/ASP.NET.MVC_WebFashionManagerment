@@ -1,0 +1,45 @@
+﻿@model IEnumerable<DeTaiWeb_ShopThoiTrang.Models.HoaDon>
+
+@{
+    ViewBag.Title = "DanhSachHoaDon";
+    Layout = "~/Views/Shared/LayoutQuanLy.cshtml";
+}
+
+<h2>Danh sách hóa đơn</h2>
+<table class="table">
+    <tr class="text-center">
+        <th style="border:1px solid black;">
+            Mã khách hàng
+        </th>
+        <th style="border:1px solid black;">
+            Ngày tạo
+        </th>
+        <th style="border:1px solid black;">
+            Tình trạng
+        </th>
+        <th style="border:1px solid black;">
+            Ghi chú
+        </th>
+        <th style="border:1px solid black;"></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr class="text-center">
+        <td style="border:1px solid black;">
+            @Html.DisplayFor(modelItem => item.MaKH)
+        </td>
+        <td style="border:1px solid black;">
+            @Html.DisplayFor(modelItem => item.NgayTao)
+        </td>
+        <td style="border:1px solid black;">
+            @Html.DisplayFor(modelItem => item.TinhTrang)
+        </td>
+        <td style="border:1px solid black;">
+            @Html.DisplayFor(modelItem => item.GhiChu)
+        </td>
+        <td style="border:1px solid black;">
+            @Html.ActionLink("Chi tiết", "ChiTietHoaDon", new { id=item.MaHoaDon })
+        </td>
+    </tr>
+}
+</table>

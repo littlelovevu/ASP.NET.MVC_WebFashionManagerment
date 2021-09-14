@@ -1,0 +1,67 @@
+﻿@{
+    ViewBag.Title = "ThemNguoiDung";
+    Layout = "~/Views/Shared/LayoutQuanLy.cshtml";
+}
+
+<div class="row text-center">
+    <form action="/Admin/ThemNguoiDung_KQ" method="post" style="margin-left:100px;">
+        <h3>THÊM NGƯỜI DÙNG</h3>
+        <div class="row mt-3">
+            <div class="col-md-5 text-left">
+                <p>Tên người dùng</p>
+            </div>
+            <div class="col-md-7">
+                <input type="text" name="txtTen" placeholder="Tên người dùng" />
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-md-5 text-left">
+                <p>Tên tài khoản</p>
+            </div>
+            <div class="col-md-7">
+                <input type="text" name="txtTenTK" placeholder="Tên tài khoản" />
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-md-5 text-left">
+                <p>Mật khẩu</p>
+            </div>
+            <div class="col-md-7">
+                <input type="password" name="txtPass" placeholder="123" />
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-md-5 text-left">
+                <p>Địa chỉ</p>
+            </div>
+            <div class="col-md-7">
+                <input type="text" name="txtDiaChi" placeholder="Địa chỉ" />
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-md-5 text-left">
+                <p>Số điện thoại</p>
+            </div>
+            <div class="col-md-7">
+                <input type="text" name="txtSDT" placeholder="Số điện thoại" />
+            </div>
+        </div>
+        
+        <div class="row mt-3">
+            <div class="col-md-5 text-left">
+                <p>Loại tài khoản</p>
+            </div>
+            <div class="col-md-7">
+                @Html.DropDownList("MaLoaiTaiKhoan")
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <input type="submit" value="Thêm người dùng" class="btn btn-dark" style="width:400px;" />
+        </div>
+    </form>
+</div>
